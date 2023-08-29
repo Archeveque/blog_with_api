@@ -24,11 +24,11 @@ function ArticlesList({ user }) {
       const articleDetails = {
         title: newTitle,
         content: newContent,
-        userId: user.id, // Assurez-vous que ceci est correctement configuré dans votre backend
+        user: user, 
       };
       const response = await createArticle(articleDetails);
       console.log('Article créé:', response.data);
-      setArticles([...articles, response.data]); // Ajouter le nouvel article à la liste
+      setArticles([...articles, response.data]);
     } catch (error) {
       console.error('Une erreur est survenue:', error);
     }
@@ -52,6 +52,7 @@ function ArticlesList({ user }) {
         <div key={article.id}>
           <h2>{article.title}</h2>
           <p>{article.content}</p>
+          <p>Author mail : {article.user.email}</p>
         </div>
       ))}
     </div>

@@ -5,8 +5,8 @@ class Api::ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
-    render json: @articles
+    @articles = Article.includes(:user).all
+    render json: @articles.to_json(include: :user)
   end
 
   # GET /articles/1

@@ -312,7 +312,7 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.jwt do |jwt|
-    jwt.secret = ENV['ddc164edcc07a3e6ac4d803259300ff2870df10e6c476f9da3ee450039a81edee384bcda10322ded994617ed6ad4d731fbf683878b0a8eb148f5256688800100']
+    jwt.secret = ENV['75fc1d2317474c2548c2a11d2e136dcc79c09311a30e2b8ba5cdc3095dae918a9d14e52e395502fae8710985cefa7d5e30b25dadba2204e5cf58614cebb6c11c']
     jwt.dispatch_requests = [['POST', %r{^/api/sign_in$}]]
     jwt.revocation_requests = [['DELETE', %r{^/api/sign_out$}]]
   end

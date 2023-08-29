@@ -5,10 +5,25 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+users=[]
+10.times do
+  usermail = "#{Faker::Games::Pokemon.name}@mail"
+  user = User.new(
+    email: usermail,
+    password: 'mdplong',
+    password_confirmation: 'mdplong'
+  )
+  user.save
+  users << user
+  puts "User #{usermail} created"
+end
+
 30.times do
-    Article.create(
+    article = Article.create(
       title: Faker::Book.title,
-      content: Faker::Lorem.paragraph
+      content: Faker::Lorem.paragraph,
+      user: users.sample
     )
   end
+  puts "seeding done"
   
